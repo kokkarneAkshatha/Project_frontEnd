@@ -32,8 +32,9 @@ export class EnquireComponent implements OnInit {
     let email= this.enquiryform.controls['email'].value;
     let branch = this.enquiryform.controls['branch'].value;
 console.log("hell"+userName);
-    let enquiry= new Enquiry(userName, message , email, branch);
+    let enquiry= new Enquiry(userName,  email, branch,message );
     console.log(enquiry);
+    alert("Thank you! \n Your message has been successfully sent. We will contact you very soon!");
     this.enquiryService.createEnquiry(enquiry).subscribe(data => console.log(data) 
     ,  error => console.log(error))
   }

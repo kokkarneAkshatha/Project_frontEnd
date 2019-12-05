@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FeedbackService {
 
-  private baseUrl ='http://localhost:9080/api/feedbacks';
+  private baseUrl ='http://localhost:1234/api/feedbacks';
 
   constructor(private http: HttpClient) { }
 

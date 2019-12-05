@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.7.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <br>
 <div class="container">
   
@@ -18,8 +19,8 @@
                             <div class="mb-2">
                                     <select class="form-control round" (change)="changeCity($event)" [(ngModel)]="sharedService.doctor.branch"formControlName="branch">
                                             <option value="">Choose your city</option>
-                                            <option    >hebbal</option>
-                                            <option    >nagavara</option>
+                                            <option    >Hebbal</option>
+                                            <option    >Nagavara</option>
                                            
                                         </select>
 
@@ -36,11 +37,14 @@
                             <div class="mb-3">
                                     <select class="form-control round"  (change)="changeSpl($event)"  [(ngModel)]="sharedService.doctor.specialist" formControlName="specialist">
                                             <option [ngValue]="">Choose your specialist</option>
+                                            <option *ngFor="let specaility of specialists" [value]="specaility">
+                                                    {{specaility}}
+                                                  </option>
                                             <!-- <option *ngFor="let spl of spcl" [ngValue]="spl.specialist">{{spl.specialist}}</option>-->
-                                            <option >dental</option>
-                                           
+                                            <!-- <option >Dental</option>
+                                           <option>Pediatrician</option>
                                             <option>Cardiologist</option>
-                                            <option>ENT</option>
+                                            <option>ENT</option> -->
                                         </select> 
 
                                 <!-- error block -->

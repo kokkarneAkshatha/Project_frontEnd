@@ -28,6 +28,8 @@ this.reloadData();
     this.appointmentservice.Appoinmentdetails(this.sharedService.appointment).pipe(finalize(()=>{for (const val of this.appointment) {
       console.log(val.date);
       console.log(this.appointment)
+      console.log(val.patientregistration.firstName)
+      
       
     }
   })).subscribe(data=>{

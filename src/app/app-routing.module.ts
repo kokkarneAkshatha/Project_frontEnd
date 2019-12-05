@@ -120,6 +120,21 @@ const routes: Routes = [
     data: {  showHeader: false ,show:false }, canActivate:[AuthGuard]
   },
   
+  {
+    path:'home',
+    canActivate: [AuthGuard],
+    
+    loadChildren: 'src/app/modules/navigation/navigation.module#NavigationModule',
+    data: { showHeader: false ,show:false,shownav:false, showFooter:false },
+  },
+  // {
+  //   path: '',
+  //   loadChildren: 'src/app/modules/auth/auth.module#AuthModule'
+  // },
+  // {
+  //   path:'**',
+  //   component: PageNotFoundComponentComponent
+  // }
 
 
 ];

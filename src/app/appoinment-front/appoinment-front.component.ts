@@ -8,6 +8,9 @@ import { SharedService } from '../shared.service';
 import { finalize } from 'rxjs/operators';
 import { Branch } from '../model/branch';
 import { Specialist } from '../model/specialist';
+import { SpecialityService } from '../modules/navigation/services/speciality.service';
+import { Observable } from 'rxjs';
+import { Speciality } from '../modules/navigation/models/speciality';
 @Component({
   selector: 'app-appoinment-front',
   templateUrl: './appoinment-front.component.html',
@@ -17,15 +20,19 @@ export class AppoinmentFrontComponent  {
   isSubmitted = false;
   branch1:Branch[];
   spcl:Specialist[];
+  specialists: Observable<Speciality[]>;
 
   // City Names
   
-  constructor(public fb: FormBuilder,private router:Router,private doctorService:DoctorserviceService ,private sharedService: SharedService) { }
+  constructor(public fb: FormBuilder,private router:Router,private doctorService:DoctorserviceService ,
+    private sharedService: SharedService, private  specialistService:SpecialityService) { }
   ngOnInit() {
     this.doctorService.findbranch().subscribe(data=>{this.branch1=data});
     
       this.doctorService.findspcl().pipe(finalize(()=>{for (const sp of this.spcl) {
         console.log(sp.specialist)}})).subscribe(data=>{this.spcl=data});
+        this.specialistService.getAllSpecialistNames().subscribe(data =>{this.specialists=data} 
+          ,  error => console.log(error));
   }
   /*########### Form ###########*/
   registrationForm = this.fb.group({

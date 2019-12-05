@@ -38,7 +38,8 @@ import { Patientregistration } from './model/patientregistration';
 import { ProfileComponent } from './profile/profile.component';
 import { AppointmentDetailsComponent } from './appointment-details/appointment-details.component';
 import { UserdetailupdateComponent } from './userdetailupdate/userdetailupdate.component';
-
+import {MaterialModule} from './material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -83,8 +84,9 @@ import { UserdetailupdateComponent } from './userdetailupdate/userdetailupdate.c
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-   
-    ReactiveFormsModule
+   MaterialModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
     // RouterModule.forRoot([{
     //   path:'Enquire',
     //   component:EnquireComponent

@@ -16,5 +16,10 @@ export class LoginService {
     return this.http.post(`${this.baseUrl}` , login);
     
   }
+  loginAdminValidation(login: Object): Observable<Object> {
+    
+    return this.http.post("http://localhost:9081/api/admins/validation" , login);
+    
+  }
 
 }

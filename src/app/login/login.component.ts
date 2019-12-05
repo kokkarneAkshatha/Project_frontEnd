@@ -80,10 +80,21 @@ onSubmit(model: loginUser) {
           }
           
         }
-        else{
-          alert("wrong userId or password");
-        }
+        else if(!data){
+          
+          this.loginService.loginAdminValidation(loginuser).subscribe(data=>{if(data){
+            this.auth.sendToken(userId);
+            this.router.navigate(["home"])
+          }
+          else{
+            alert("wrong userId or password");
+          }
+  })
 
+
+        }
+      
+       
      });
     
   }
